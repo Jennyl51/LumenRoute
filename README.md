@@ -2,7 +2,7 @@
 
 
 
-##Set up instructions
+## Set up instructions
 > [!IMPORTANT]
 > To clone the repository on your local device:
     - **Recommended Steps**:
@@ -10,13 +10,14 @@
             - EX: Desktop, Download, etc.
         2. Create a folder for Open Project with `mkdir` commend
             ```
-            mkdir op
+            $ mkdir op
             ```
         3. [Optional] Create a folder for LumenRoute
             ```
-            mkdir lumenroute
+            $ mkdir lumenroute
             ```
         4. Follow the steps bellow:
+    
     1. Clone the remote repository with the url:
         ```
             $ git clone https://github.com/Jennyl51/LumenRoute
