@@ -5,35 +5,36 @@
 ## Set up instructions
 > [!IMPORTANT]
 > To clone the repository on your local device:
-    - **Recommended Steps**:
-        1. Find a local folder on your laptop where you would like to store your project. 
-            - EX: Desktop, Download, etc.
-        2. Create a folder for Open Project with `mkdir` commend
-            ```
-            $ mkdir op
-            ```
-        3. [Optional] Create a folder for LumenRoute
-            ```
-            $ mkdir lumenroute
-            ```
-        4. Follow the steps bellow:
-    
-    1. Clone the remote repository with the url:
-        ```
-            $ git clone https://github.com/Jennyl51/LumenRoute
-        ```
-    2. Change directory to the folder you just cloned with `cd`
-        ```
-        $ cd LumenRoute
-        ```
-    3. [Optional] Check remote connections with:
-        ```
-        $ git remote -v
-        ```
-    4. Pull all changes from the remote end
-        ```
-        $ git pull origin main
-        ```
+### Recommended Steps:
+1. Find a local folder on your laptop where you would like to store your project. 
+    - EX: Desktop, Download, etc.
+2. Create a folder for Open Project with `mkdir` commend
+    ```
+    $ mkdir op
+    ```
+3. [Optional] Create a folder for LumenRoute
+    ```
+    $ mkdir lumenroute
+    ```
+4. Follow the steps bellow:
+
+**Clone Repository**
+1. Clone the remote repository with the url:
+    ```
+        $ git clone https://github.com/Jennyl51/LumenRoute
+    ```
+2. Change directory to the folder you just cloned with `cd`
+    ```
+    $ cd LumenRoute
+    ```
+3. [Optional] Check remote connections with:
+    ```
+    $ git remote -v
+    ```
+4. Pull all changes from the remote end
+    ```
+    $ git pull origin main
+    ```
 
 1. Download the data files from City of Berkeley Police Deparment Data Portal: https://bpd-transparency-initiative-berkeleypd.hub.arcgis.com/search or from the Data.zip shared in #lumenroute Slack Channel
 
