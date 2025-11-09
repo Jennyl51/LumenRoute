@@ -52,5 +52,4 @@ app-example
 cache/
 __pycache__/
 assets/Data/
-assets/dummie-data/algorithm/
 
