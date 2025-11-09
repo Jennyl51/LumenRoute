@@ -48,7 +48,9 @@ app-example
 /ios
 /android
 
-Data
 
 cache/
 __pycache__/
+assets/Data/
+assets/dummie-data/algorithm/
+
