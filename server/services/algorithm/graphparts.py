@@ -12,12 +12,14 @@ from typing import Dict, List, Tuple, Optional
 
 
 # for dummy, get the csv
-DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'dummy.csv')
+# changed the path to current dummy.csv directory
+DATA_PATH = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'assets', 'dummie-data', 'algorithm', 'dummy.csv')
 DATA_PATH = os.path.abspath(DATA_PATH)
 
 # true nodes/edges for after mid-sem
-if not os.path.exists("data/berkeley_adj_list.csv"):
-    from backend.csv_builder import build_csv
+# changed the path to current berkeley_adj_list.csv directory
+if not os.path.exists("../../../assets/dummie-data/algorithm/berkeley_adj_list.csv"):
+    from csv_builder import build_csv
     build_csv()
 
 # CSV we're assuming (source, destination, weight)

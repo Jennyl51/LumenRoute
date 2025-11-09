@@ -78,6 +78,12 @@ LumenRoute/
         - GOOGLE_ANDROID_CLIENT_ID
     ```
 
+### backend Packages
+1. Run the following commends to install libraries:
+    ```
+    $ pip install osmnx pandas numpy
+    ```
+
 
 ## Large Files
 
