@@ -3,7 +3,8 @@ import pandas as pd
 import os
 
 # unfinished
-def build_csv(center_coords=(37.8719, -122.2585), radius_m=4828, outfile="data/berkeley_adj_list.csv"): # 4828 ~= 3mi
+# changed path to current berkeley_adj_list.csv directory
+def build_csv(center_coords=(37.8719, -122.2585), radius_m=4828, outfile="../../../assets/dummie-data/algorithm/berkeley_adj_list.csv"): # 4828 ~= 3mi
     # get road network
     G = ox.graph_from_point(center_coords, dist=radius_m, network_type='drive')
 

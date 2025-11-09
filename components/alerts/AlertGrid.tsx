@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, ScrollView } from "react-native";
 import AlertCard from "./AlertCards";
-import alert from "@/assets/data/dummie-alerts.json";
+import alert from "@/assets/dummie-data/dummie-alerts.json";
 import { Ionicons } from "@expo/vector-icons";
 
 
