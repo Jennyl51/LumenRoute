@@ -1,0 +1,68 @@
+[
+    {
+      "id": 1,
+      "source": "UC Berkeley",
+      "title": "'Major windshield damage': 2 people struck near UC Berkeley",
+      "author": "Emilie Raguso",
+      "datetime": "2025-10-10T17:32:00",
+      "summary": "Both pedestrians, one of whom is pregnant, were rushed to Highland Hospital, according to early reports.",
+      "details": "A driver struck two pedestrians, including a pregnant woman, near UC Berkeley on Friday, sending both to Highland Hospital. The crash took place at about 5:10 p.m. on Channing Way between Telegraph Avenue and Dana Street. Police said the white Dodge that struck the pair had major windshield damage after the collision. The driver remained at the scene. Both pedestrians were transported 'Code 3' to Highland Hospital. The man accompanying the pregnant woman was thrown 20 feet. The Fatal Accident Investigation Team was called to the scene.",
+      "category": "Traffic Incident"
+    },
+    {
+      "id": 2,
+      "source": "UC Berkeley",
+      "title": "UC Berkeley hate crime report: BB gun shooting, racial slurs",
+      "author": "Emilie Raguso",
+      "datetime": "2025-09-30T12:00:00",
+      "likes": 7,
+      "summary": "\"This kind of violence has no place in our community,\" said Cecilia Lunaparra, Berkeley City Council rep for the Southside district.",
+      "details": "UC Berkeley police are investigating a hate crime incident involving BB gun shots and racial slurs near the Southside district. City officials condemned the act, calling for unity and increased safety measures on campus.",
+      "category": "Hate Crime"
+    },
+    {
+      "id": 3,
+      "source": "UC Berkeley",
+      "title": "Oakland teens with gun arrested near UC Berkeley stadium",
+      "author": "Emilie Raguso",
+      "datetime": "2025-09-25T15:00:00",
+      "likes": 28,
+      "summary": "When officers inspected the gun, they determined it had been stolen in an auto burglary in Boise, Idaho, UCPD wrote.",
+      "details": "Two Oakland teenagers were arrested near the UC Berkeley stadium after officers found them carrying a stolen firearm. The weapon was traced back to a car burglary in Boise, Idaho. Police confirmed both suspects are in custody.",
+      "category": "Weapons Arrest"
+    },
+    {
+      "id": 4,
+      "source": "UC Berkeley",
+      "title": "Crime log: Crash leads cops to drug stash; battery on Solano",
+      "author": "Emilie Raguso",
+      "datetime": "2025-09-24T10:00:00",
+      "likes": 18,
+      "summary": "Today's Berkeley crime blotter also has details on a recent robbery near Cal and a road rage case involving a gun.",
+      "details": "Police reports reveal a recent crash led to the discovery of a drug stash. Additional incidents included a robbery near UC Berkeley and a road rage case involving a firearm on Solano Avenue.",
+      "category": "Crime Log"
+    },
+    {
+      "id": 5,
+      "source": "UC Berkeley",
+      "title": "Update: Magnitude 4.3 earthquake jolts UC Berkeley",
+      "author": "Emilie Raguso",
+      "datetime": "2025-09-22T08:45:00",
+      "likes": 49,
+      "summary": "There have been just eight other quakes in or near Berkeley since Jan. 1, 2023, according to USGS data.",
+      "details": "A 4.3 magnitude earthquake shook UC Berkeley and nearby areas early Monday morning. No major damages were reported, but students and residents reported feeling the tremor. Experts say it’s one of the few notable quakes near Berkeley in recent years.",
+      "category": "Earthquake"
+    },
+    {
+      "id": 6,
+      "source": "UC Berkeley",
+      "title": "Yes, Berkeley did have a small earthquake Sunday morning",
+      "author": "Emilie Raguso",
+      "datetime": "2025-09-02T07:10:00",
+      "likes": 3,
+      "summary": "There have been just six other quakes in or near Berkeley since Jan. 1, 2023, according to USGS data.",
+      "details": "A small tremor occurred in Berkeley on Sunday morning, marking the latest of a handful of minor seismic events in the area since early 2023. No damages or injuries were reported.",
+      "category": "Earthquake"
+    }
+  ]
+  
