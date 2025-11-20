@@ -1,5 +1,4 @@
 # LUMENROUTE BACKEND
-# CRIME CLASS AND CALCULATE WEIGHTS
 
 import pandas as pd
 import numpy as np
