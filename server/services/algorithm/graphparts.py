@@ -12,7 +12,7 @@ from typing import Dict, List, Tuple, Optional
 
 # for dummy, get the csv
 # changed the path to current dummy.csv directory
-DATA_PATH = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'assets', 'dummie-data', 'algorithm', 'dummy.csv')
+DATA_PATH = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'assets', 'dummie-data', 'algorithm', 'real_data.csv')
 DATA_PATH = os.path.abspath(DATA_PATH)
 
 # true nodes/edges for after mid-sem
