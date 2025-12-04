@@ -1,140 +1,150 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  TextInput,
-  TouchableOpacity,
-  Image,
-  StyleSheet,
-} from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { View, Text, ScrollView, Image, StyleSheet } from "react-native";
 
-export default function CommunityScreen() {
-  const [search, setSearch] = useState("");
-  const [posts, setPosts] = useState([
+export default function CommunityPage() {
+  const posts = [
     {
-      id: "1",
-      user: "Emma Davis",
-      location: "Downtown Berkeley",
-      image: "https://picsum.photos/400/300?random=1",
-      likes: 18,
-      comments: 4,
+      id: 1,
+      name: "Mariane",
+      handle: "@marianeee",
+      date: "1/21/20",
+      text: "Just saw a fire burning someone's house down at downtown Berkeley. Stay safe and avoid this area!",
+      img: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?q=80&w=1200&auto=format&fit=crop",
+      comments: 7,
+      retweets: 1,
+      likes: 3,
     },
     {
-      id: "2",
-      user: "Michael Chen",
-      location: "UC Berkeley Campus",
-      image: "https://picsum.photos/400/300?random=2",
-      likes: 22,
-      comments: 5,
+      id: 2,
+      name: "Mariane",
+      handle: "@marianeee",
+      date: "1/21/20",
+      text: "Just saw a fire burning someone's house down at downtown Berkeley. Stay safe and avoid this area!",
+      img: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?q=80&w=1200&auto=format&fit=crop",
+      comments: 7,
+      retweets: 1,
+      likes: 3,
     },
-  ]);
-
-  const renderPost = ({ item }) => (
-    <View style={styles.postCard}>
-      <Text style={styles.userName}>{item.user}</Text>
-      <Text style={styles.location}>{item.location}</Text>
-      <Image source={{ uri: item.image }} style={styles.postImage} />
-      <View style={styles.actions}>
-        <View style={styles.iconGroup}>
-          <Ionicons name="heart-outline" size={20} color="#ff4d4d" />
-          <Text style={styles.count}>{item.likes}</Text>
-        </View>
-        <View style={styles.iconGroup}>
-          <Ionicons name="chatbubble-outline" size={20} color="#666" />
-          <Text style={styles.count}>{item.comments}</Text>
-        </View>
-      </View>
-    </View>
-  );
+  ];
 
   return (
-    <View style={styles.container}>
-      {/* Search bar */}
-      <View style={styles.searchBar}>
-        <Ionicons name="search-outline" size={20} color="#888" />
-        <TextInput
-          style={styles.input}
-          placeholder="Search posts..."
-          value={search}
-          onChangeText={setSearch}
-        />
+    <View style={styles.app}>
+      {/* Top Bar */}
+      <View style={styles.topbar}>
+        <Text style={styles.globe}>🌐</Text>
+        <Text style={styles.city}>Berkeley, CA</Text>
       </View>
 
-      {/* Post list */}
-      <FlatList
-        data={posts}
-        renderItem={renderPost}
-        keyExtractor={(item) => item.id}
-        showsVerticalScrollIndicator={false}
-      />
+      {/* Feed */}
+      <ScrollView contentContainerStyle={styles.feed}>
+        {posts.map((post) => (
+          <View key={post.id} style={styles.post}>
+            <View style={styles.row}>
+              <Image
+                source={{
+                  uri: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop",
+                }}
+                style={styles.avatar}
+              />
+              <View>
+                <Text style={styles.name}>{post.name}</Text>
+                <Text style={styles.handle}>
+                  {post.handle} · {post.date}
+                </Text>
+              </View>
+            </View>
 
-      {/* Floating add button */}
-      <TouchableOpacity style={styles.addButton}>
-        <Ionicons name="add" size={30} color="#fff" />
-      </TouchableOpacity>
+            <Text style={styles.tweet}>{post.text}</Text>
+
+            <Image source={{ uri: post.img }} style={styles.media} />
+
+            <View style={styles.actions}>
+              <Text style={styles.action}>💬 {post.comments}</Text>
+              <Text style={[styles.action, { color: "#33c36b" }]}>
+                🔁 {post.retweets}
+              </Text>
+              <Text style={[styles.action, { color: "#e25563" }]}>
+                ❤️ {post.likes}
+              </Text>
+              <Text style={styles.action}>↗️</Text>
+            </View>
+
+            <View style={styles.divider} />
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff", paddingHorizontal: 16, paddingVertical: 50 },
-  searchBar: {
+  app: {
+    flex: 1,
+    backgroundColor: "#0f1320",
+  },
+  topbar: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#f3f4f6",
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    marginVertical: 10,
+    padding: 20,
+    gap: 12,
   },
-  input: {
-    flex: 1,
-    marginLeft: 8,
-    fontSize: 16,
-    color: "#333",
-    paddingVertical: 6,
+  globe: {
+    fontSize: 24,
   },
-  postCard: {
-    backgroundColor: "#fff",
+  city: {
+    fontSize: 22,
+    fontWeight: "700",
+    color: "#eef2ff",
+  },
+  feed: {
+    paddingHorizontal: 16,
+    paddingBottom: 40,
+  },
+  post: {
+    marginBottom: 28,
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
+  avatar: {
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    backgroundColor: "#d7dee8",
+  },
+  name: {
+    fontWeight: "800",
+    color: "#eef2ff",
+  },
+  handle: {
+    color: "#8a94a6",
+  },
+  tweet: {
+    color: "#d9e2ff",
+    marginVertical: 8,
+  },
+  media: {
+    width: "100%",
+    height: 180,
     borderRadius: 12,
-    marginBottom: 16,
-    overflow: "hidden",
-    elevation: 2,
+    backgroundColor: "#000",
+    marginVertical: 8,
   },
-  userName: {
-    fontWeight: "bold",
-    fontSize: 16,
-    paddingTop: 8,
-    paddingHorizontal: 10,
-  },
-  location: {
-    color: "#888",
-    fontSize: 13,
-    paddingHorizontal: 10,
-    marginBottom: 6,
-  },
-  postImage: { width: "100%", height: 200 },
   actions: {
     flexDirection: "row",
-    justifyContent: "flex-start",
-    padding: 10,
+    justifyContent: "space-between",
+    paddingHorizontal: 10,
+    marginTop: 6,
   },
-  iconGroup: { flexDirection: "row", alignItems: "center", marginRight: 20 },
-  count: { marginLeft: 5, fontSize: 14, color: "#555" },
-  addButton: {
-    position: "absolute",
-    bottom: 25,
-    right: 25,
-    backgroundColor: "#3b82f6",
-    borderRadius: 50,
-    width: 55,
-    height: 55,
-    alignItems: "center",
-    justifyContent: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
+  action: {
+    color: "#8a94a6",
+    fontWeight: "600",
+  },
+  divider: {
+    height: 1,
+    backgroundColor: "#2a3246",
+    marginTop: 8,
   },
 });
