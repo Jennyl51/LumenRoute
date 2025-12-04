@@ -1,18 +1,29 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "jsx": "react-jsx",             // ✅ enable modern JSX transform
-    "types": ["react"],             // ✅ ensure React types are loaded
+    "jsx": "react-jsx",
     "strict": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+
+    // ⭐ ADD THESE LINES BELOW ⭐
+    "types": ["react", "node"],           // <-- allow process, fs, path, etc.
+    "moduleResolution": "node",           
+    "resolveJsonModule": true,            
+    "esModuleInterop": true,              
+    "skipLibCheck": true                  
   },
+
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
+    "expo-env.d.ts",
+
+    // ⭐ ADD THIS ⭐ so backend TS files run
+    "server/services/api/crimeNewsAPI.ts",
+    "runCrimeNews.ts"
   ]
 }

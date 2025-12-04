@@ -53,3 +53,8 @@ cache/
 __pycache__/
 assets/Data/
 
+
+GmailAPI/credentials.json
+GmailAPI/token.json
+GmailAPI/__pycache__/
+GmailAPI/warnme_emails.csv
