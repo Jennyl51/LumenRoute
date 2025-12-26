@@ -1,6 +1,7 @@
 // app/(tabs)/features/index.tsx
 import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import {useNavigation} from '@react-navigation/native';
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,9 +9,11 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { Button } from "@react-navigation/elements";
 
 export default function FeaturesPage() {
   const router = useRouter();
+  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -24,17 +27,43 @@ export default function FeaturesPage() {
       <View style={styles.main}>
         <View style={styles.orbit}>
           {/* 5 normal dots */}
-          <View style={[styles.dot, styles.dot1]} />
-          <View style={[styles.dot, styles.dot2]} />
-          <View style={[styles.dot, styles.dot3]} />
-          <View style={[styles.dot, styles.dot4]} />
-          <View style={[styles.dot, styles.dot5]} />
+          <View style={[styles.dot, styles.dot1]}>
+            <Feather name="calendar" size={28} color="#071018" />
+          </View>
+          <View style={[styles.dot, styles.dot2]}>
+            <Feather name="map" size={28} color="#071018" />
+          </View>
+
+          {/* dot3 */}
+          <View style={[styles.dot, styles.dot3]}>
+            <Feather name="bell" size={28} color="#071018" />
+          </View>
+
+          {/* dot4 */}
+          <View style={[styles.dot, styles.dot4]}>
+            <Feather name="settings" size={28} color="#071018" />
+          </View>
+
+
+          {/* dot5 */}
+          <View style={[styles.dot, styles.dot5]}>
+            <Feather name="heart" size={28} color="#071018" />
+          </View>
 
           {/* 🔴 clickable red dot → checkin page */}
           <TouchableOpacity
-            onPress={() => router.push("/(tabs)/features/checkin" as const)}
-            style={[styles.dot, styles.dot6]}
-          />
+          onPress={() => router.push("/(tabs)/features/checkin" as const)}
+          style={[styles.dot, styles.dot6]}
+        >
+          <Feather name="check-circle" size={28} color="#fff" />
+        </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => router.push("/settings" as const)}
+            style={[styles.dot, styles.dot4]}
+          >
+            <Feather name="settings" size={28} color="#071018" />
+          </TouchableOpacity>
 
           {/* Center blue circle */}
           <View style={styles.center}>
@@ -55,6 +84,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#070B14",
     justifyContent: "flex-start",
+    paddingTop: 60,
   },
   header: {
     flexDirection: "row",
@@ -82,19 +112,21 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: "50%",
     left: "50%",
-    width: 190,
-    height: 190,
+    width: 142,
+    height: 142,
     backgroundColor: "#5CB3DF",
-    borderRadius: 100,
+    borderRadius: 71,
     alignItems: "center",
     justifyContent: "center",
-    transform: [{ translateX: -95 }, { translateY: -95 }],
+    transform: [{ translateX: -71 }, { translateY: -71 }],
   },
   dot: {
     position: "absolute",
     width: 65,
     height: 65,
     borderRadius: 33,
+    alignItems: "center",
+    justifyContent: "center",
   },
   dot1: {
     backgroundColor: "#F4EB6A",
@@ -127,5 +159,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#E15C54",
     top: "25%",
     left: "10%",
+  },
+  button: {
+    backgroundColor: "#E9B06F",
+    bottom: "10%",
+    left: "50%",
+    transform: [{ translateX: -32.5 }],
+  },
+  buttonText: {
+    color: '#000000',
+    marginLeft: 8,
+    fontWeight: "700",
+    fontSize: 15,
   },
 });

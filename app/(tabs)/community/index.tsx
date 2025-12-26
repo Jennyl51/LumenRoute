@@ -81,11 +81,13 @@ const styles = StyleSheet.create({
   app: {
     flex: 1,
     backgroundColor: "#0f1320",
+    paddingTop: 60,
   },
   topbar: {
     flexDirection: "row",
     alignItems: "center",
-    padding: 20,
+    paddingHorizontal: 16,
+    paddingBottom: 16,
     gap: 12,
   },
   globe: {

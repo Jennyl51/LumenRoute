@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
+import InputBar from "../ui/Input/Input-bar";
 
 export default function MapReact() {
   return (
@@ -20,11 +21,32 @@ export default function MapReact() {
           description="Starting point"
         />
       </MapView>
+      <InputBar
+          placeholder="Search location"
+          containerStyle={styles.searchbar}
+          inputStyle={styles.searchbarInput}
+      />
+     
+      
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: { 
+    flex: 1,
+  },
   map: { flex: 1 },
+  searchbar: {
+    position: "absolute",
+    top: 60,
+    left: 16,
+    right: 16,
+    zIndex: 10,
+    borderColor: "#4AAFFF",
+    borderWidth: 1.5,
+  },
+  searchbarInput: {
+    color: "white",
+  }
 });

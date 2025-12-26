@@ -168,11 +168,11 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: BG,
+    paddingTop: 60,
   },
   header: {
     flexDirection: "row",
     alignItems: "center",
-    paddingTop: 24,
     paddingHorizontal: 20,
     paddingBottom: 12,
   },
