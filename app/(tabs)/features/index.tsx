@@ -13,7 +13,6 @@ import { Button } from "@react-navigation/elements";
 
 export default function FeaturesPage() {
   const router = useRouter();
-  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.container}>

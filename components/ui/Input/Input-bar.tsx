@@ -24,11 +24,11 @@ export default function InputBar({
   return (
     <View style={[styles.container, containerStyle]}>
       <View style={styles.inputRow}>
-        <Ionicons name="search-outline" size={20} color="#888" />
+        <Ionicons name="search-outline" size={20} color="#FFFFFF" />
         <TextInput
           style={[styles.textInput, inputStyle]}
           placeholder={placeholder}
-          placeholderTextColor="#888"
+          placeholderTextColor="#FFFFFF"
           value={text}
           onChangeText={(t) => {
             setInternalValue(t);
