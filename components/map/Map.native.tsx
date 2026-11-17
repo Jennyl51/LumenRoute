@@ -5,12 +5,14 @@ import InputBar from "../ui/Input/Input-bar";
 import MapTypeSwitch from "../ui/map/map-type";
 import MapTypePopUp from "../ui/map/maptype-popup";
 import CrimeMapMarkers from "./map-markers";
+import { on } from "stream";
 
 export default function MapReact() {
   const [mapType, setMapType] = useState<MapType>("standard");
   const [isPopUpVisible, setPopUpVisible] = useState(false);
   const [crimeMarkersVisible, setCrimeMarkersVisible] = useState(false);
-
+  const [onSearchPage, setOnSearchPage] = useState(false);
+  
   return (
     <View style={styles.container}>
       <MapView
@@ -35,6 +37,8 @@ export default function MapReact() {
           placeholder="Search"
           containerStyle={styles.searchbar}
           inputStyle={styles.searchbarInput}
+          onSearch={false}
+          setSearch={setOnSearchPage}
       />
       <MapTypeSwitch mapType={mapType} onOpenPopUp={() => setPopUpVisible(true)} />
       <MapTypePopUp 
