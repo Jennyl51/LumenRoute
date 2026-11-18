@@ -1,58 +1,43 @@
-// server/services/googleRoutes.js
-const axios = require("axios");
-require("dotenv").config();
+// Calls the Google Routes API from the server, never from the browser.
+export async function getWalkingRoute({ origin, destination }) {
+  const key = process.env.GOOGLE_MAPS_SERVER_API_KEY;
+  if (!key) throw new Error("Missing GOOGLE_MAPS_SERVER_API_KEY in server/.env");
 
-const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
-
-// Basic: shortest route by distance/time
-async function getRoute({ origin, destination, travelMode = "WALK" }) {
-  if (!GOOGLE_MAPS_API_KEY) {
-    throw new Error("GOOGLE_MAPS_API_KEY is not set in .env");
-  }
-
-  const url = "https://routes.googleapis.com/directions/v2:computeRoutes";
-
-  // Body per Routes API v2 docs
-  const body = {
-    origin: {
-      location: {
-        latLng: {
-          latitude: origin.lat,
-          longitude: origin.lng,
-        },
-      },
-    },
-    destination: {
-      location: {
-        latLng: {
-          latitude: destination.lat,
-          longitude: destination.lng,
-        },
-      },
-    },
-    travelMode,            // e.g. "WALK"
-    routingPreference: "TRAFFIC_AWARE",  // not super important for walking, but okay
-    computeAlternativeRoutes: false,
-    polylineEncoding: "ENCODED_POLYLINE",
-  };
-
-  try {
-    const response = await axios.post(url, body, {
+  const waypoint = ({ lat, lng }) => ({
+    location: { latLng: { latitude: lat, longitude: lng } },
+  });
+  const response = await fetch(
+    "https://routes.googleapis.com/directions/v2:computeRoutes",
+    {
+      method: "POST",
+      signal: AbortSignal.timeout(12000),
       headers: {
         "Content-Type": "application/json",
-        "X-Goog-Api-Key": GOOGLE_MAPS_API_KEY,
+        "X-Goog-Api-Key": key,
         "X-Goog-FieldMask":
-          "routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline",
+          "routes.distanceMeters,routes.duration,routes.polyline.encodedPolyline",
       },
-    });
-
-    return response.data.routes?.[0] || null;
-  } catch (err) {
-    console.error("Error calling Routes API:", err.response?.data || err.message);
-    throw err;
+      body: JSON.stringify({
+        origin: waypoint(origin),
+        destination: waypoint(destination),
+        travelMode: "WALK",
+        computeAlternativeRoutes: false,
+        polylineEncoding: "ENCODED_POLYLINE",
+      }),
+    }
+  );
+  if (!response.ok) {
+    const detail = await response.text();
+    console.error("Routes API failure", response.status, detail.slice(0, 400));
+    throw new Error(`Routes API returned ${response.status}`);
   }
+  const body = await response.json();
+  const route = body.routes?.[0];
+  if (!route?.polyline?.encodedPolyline) return null;
+  return {
+    distanceMeters: route.distanceMeters,
+    duration: route.duration,
+    encodedPolyline: route.polyline.encodedPolyline,
+    routeType: "google_walking_baseline",
+  };
 }
-
-module.exports = {
-  getRoute,
-};
