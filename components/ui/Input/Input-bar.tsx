@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { View, StyleSheet, TextInput, ViewStyle, TextStyle } from "react-native";
+import { View, StyleSheet, TextInput, ViewStyle, TextStyle, Text,TouchableOpacity} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { on } from "events";
+import { useRouter } from "expo-router";
 
 type InputBarProps = {
   placeholder?: string;
@@ -8,6 +10,8 @@ type InputBarProps = {
   value?: string;
   containerStyle?: ViewStyle;
   inputStyle?: TextStyle;
+  onSearch?: boolean;
+  setSearch?: (v: boolean) => void;
 };
 
 export default function InputBar({
@@ -16,10 +20,34 @@ export default function InputBar({
   value,
   containerStyle,
   inputStyle,
+  onSearch,
+  setSearch
+
 }: InputBarProps) {
   const [internalValue, setInternalValue] = useState("");
 
   const text = value ?? internalValue;
+  const router = useRouter();
+  if (!onSearch) {
+    return (
+      <TouchableOpacity
+        activeOpacity={0.85}
+        onPress={() => {
+          setSearch?.(true);
+          router.push("/(tabs)/map/search");
+        }}
+        style={[styles.container, containerStyle]}
+      >
+        <View style={styles.inputRow}>
+          <Ionicons name="search-outline" size={20} color="#FFFFFF" />
+          <Text style={[styles.placeholderText, inputStyle]}>
+            {placeholder}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    );
+  }
+  
 
   return (
     <View style={[styles.container, containerStyle]}>
@@ -57,4 +85,15 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     fontSize: 16,
   },
+  searchtrigger:{
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  placeholderText: {
+    flex: 1,
+    marginLeft: 10,
+    fontSize: 16,
+    color: "#FFFFFF",
+    opacity: 0.85,
+  }
 });

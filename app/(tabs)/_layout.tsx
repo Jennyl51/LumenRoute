@@ -145,6 +145,12 @@ export default function TabLayout() {
         }}
       />
       {/* <Tabs.Screen
+        name="map/search"
+        options={{
+          href: null,
+        }}
+      /> */}
+      {/* <Tabs.Screen
         name="explore"
         options={{
           title: 'Explore',
